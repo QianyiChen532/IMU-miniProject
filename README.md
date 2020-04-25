@@ -1,33 +1,30 @@
-## IMU-Mini Project
+# IMU-Mini Project
 
+## Concept
+Combining the movement of my hand when playing the music instrument (called "Pipa" in Chinese) to the movement of leaves. Exploring new ways of visualizing music not only through the sound but also the movement of playing the music instrument.
 
-# IMU Web Client Examples
+## Development
+- p5 sketch:
+I spent some time learning about the recursive structure of the tree. The initial idea is to also apply the wind force to the branch of the tree but I haven't figure it out yet. When the leaves are still on the branch, it will have the swing movement (implemented by the rotation). If the data is higher than certain threshold, the force will be triggered.
 
-This directory contains example programs, that use the
-[imu-tools](https://www.npmjs.com/package/imu-tools) npm package to connect to
-an ESP32 that is running either the MicroPython code in
-[imu-tools](https://github.com/osteele/imu-tools), or the Arduino (C++) code in
-[Arduino-BLE-IMU](https://github.com/osteele/Arduino-BLE-IMU).
+- Input Data
+I only get a rough sense of how it works through my limited knowledge of linear algebra. The euler angle is relatively more straight forward, but the gimbal lock is. Thanks to the highcharts example, I was able to find a pattern for my input data.
 
-## A Guide to the examples
+- Combination
 
-(If you run a server at port 5500, as above, you can click on the example names
-below in order to open them in a browser.)
+leave movement: gravity, wind, rotation.
+data: quaternion data, acceleration data.
 
-[`index.html`](http://127.0.0.1:5500) displays a list of examples in this directory.
+I main used the map function to control the input data. And also set threshold to control the state change.
 
-[`sketch.html`](http://localhost:5500/sketch.html) is simple p5.js sketch that
-displays the Euler angles. Use it as a starter templtate for writing p5.js
-sketches that use the IMU.
+## Struggles && Further Development
+- Understand how the quaternion works.
+- More stable data input
+- More organic movement
 
-[`chart.html`](http://127.0.0.1:5500/chart.html) uses [HighCharts](https://www.highcharts.com)
-to display another live graph, that automatically scales the *y* axis as data
-arrives.
+# About the IMU Web Client Examples
 
-## Additional reading
-
-See the [npm imu-tools README](https://www.npmjs.com/package/imu-tools) for
-additional documentation for the IMU connection code.
+See [IMU Web Client Examples](https://github.com/osteele/imu-client-examples) Repo
 
 ## License
 
