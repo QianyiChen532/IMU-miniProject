@@ -304,7 +304,14 @@ class Leaf{
       rotate(this.angle);
       // fill(230,81,70,30);
 
-      fill(76,175,80,30);
+      // fill(76,175,70+100*q3,30);
+      let color1 = color(230,81,70,20);
+      let color2 = color(76,175,80,30);
+          // fill(230,81,70,20);
+          let q = map(q3,-1,1,0,1);
+          console.log(q);
+        let colorL = lerpColor(color2,color1,q)
+        fill(colorL);
       noStroke();
       scale(this.scaleF*(this.mass+1));
       triangle(0,-10,0,10,15,5);
